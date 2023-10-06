@@ -10,7 +10,7 @@ public class Main {
 
 
         Scanner scanner= new Scanner(System.in);
-    for (int i=0;i<10;i++){
+    for (;;){
         int myszka;
         System.out.println();
         System.out.println("-----------------");
@@ -33,14 +33,24 @@ public class Main {
 
             }break;
             case 2:{
-                int id,godz,data;
+                int id,godz;
+                double data;
                 System.out.println("sprawdzanie");
                 System.out.println("prosze wybrac id sali: ");
                 id=scanner.nextInt();
                 System.out.println("podaj date");
                 data=scanner.nextInt();
+                if (data>31 || data<1){
+                    System.out.println("podano nieodpowiednia date");
+                    return;
+                }
                 System.out.println("podaj godz");
+
                 godz=scanner.nextInt();
+                if (godz>24 || godz<1){
+                    System.out.println("podano nieodpowiednia godzine");
+                    return;
+                }
 
                 sala[id].sprawdzenie_rezerwacji(data,godz);
 

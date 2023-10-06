@@ -42,7 +42,7 @@ public class Sala {
         }
      return 0;
     }
-    int sprawdzenie_rezerwacji(int data,int godz){
+    int sprawdzenie_rezerwacji(double data,int godz){
         System.out.println("sprawdznie rezerwacji: ");
 
         for (int i=0;i<tablica_data.length;i++){
