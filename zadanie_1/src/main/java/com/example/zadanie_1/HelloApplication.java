@@ -114,6 +114,8 @@ public class HelloApplication extends Application {
 
                 if (punkty==6){
                     System.out.println("udalo sie poprawnie wypełnic formularz <3");
+                }else{
+                    System.out.println("nie podano wszystkich danych");
                 }
                 punkty=0;
             }
