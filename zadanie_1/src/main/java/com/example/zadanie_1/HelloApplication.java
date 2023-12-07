@@ -85,30 +85,46 @@ public class HelloApplication extends Application {
 
 
                 if (patternAdres==false){
+                    System.out.println("adres :poprawne");
                     punkty++;
+                }else {
+                    System.out.println("Błąd w adresie : X");
                 }
 
                 if (patternImie == true){
-                    System.out.println("imie");
+                    System.out.println("imie :poprawne");
                     punkty++;
+                }else {
+                    System.out.println("Błąd w imieniu : X");
                 }
+
                 if (patternNazwisko==true) {
-                    System.out.println("nazwisko");
+                    System.out.println("nazwisko :poprawne");
                     punkty++;
+                }else {
+                    System.out.println("Błąd w nazwisku : X");
                 }
+
                 if (patternMiejscowosc==true){
                     punkty++;
-                    System.out.println("miejscowos");
+                    System.out.println("miejscowos :poprawne");
+                }else {
+                    System.out.println("Błąd w miejscowosc : X");
                 }
 
                 if (patternEmail==true){
                     punkty++;
-                    System.out.println("email");
+                    System.out.println("email :poprawne");
+                }else {
+                    System.out.println("Błąd w emailu : X");
                 }
 
+
                 if (patternTelefon==true){
-                    System.out.println("telefon");
+                    System.out.println("telefon :poprawne");
                     punkty++;
+                }else {
+                    System.out.println("Błąd w telefonie : X");
                 }
 
 
