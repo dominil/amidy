@@ -25,21 +25,6 @@ public class baza {
             connection = DriverManager.getConnection(url, username, password);
 
 
-//            ResultSet resultSet = statement.executeQuery("SELECT * FROM pracownicy");
-//
-//            while (resultSet.next()) {
-//                int id = resultSet.getInt("nr_pracownika");
-//                String name = resultSet.getString("imie");
-//                String surname = resultSet.getString("nazwisko");
-//                String position = resultSet.getString("stanowisko");
-//
-//                System.out.println("ID: " + id);
-//                System.out.println("Name: " + name);
-//                System.out.println("Surname: " + surname);
-//                System.out.println("Position: " + position);
-//                System.out.println("---------");
-//            }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,7 +62,16 @@ public class baza {
                     System.out.println("3:DATE");
 
                     switch (scanner.nextInt()){
-                        case 1:query+="INT";break;
+                        case 1:
+
+                            query+="INT";
+                            System.out.println("czy ma byc AI?\n 1:tak \n 2:nie");
+                            int auto=scanner.nextInt();
+                            if (auto==1){
+                                query+=" NOT NULL AUTO_INCREMENT PRIMARY KEY";
+                            }
+                            
+                            break;
                         case 2:
                             System.out.println("podaj maksymalna ilosc znaków");
                             query+="VARCHAR("+scanner.nextInt()+")";
@@ -91,7 +85,6 @@ public class baza {
                         }
 
                 }
-                System.out.println(query);
 
                 Statement statement = connection.createStatement();
                 statement.execute(query);
@@ -126,21 +119,20 @@ public class baza {
                     System.out.println("podaj wartosc dla "+field);
                     String zmienna= scanner2.next();
                     if (sprawdzanie==0){
-                        query_koncowe+=" "+zmienna+" ";
+                        query_koncowe+=" \" "+zmienna+" \" ";
                     }else {
-                        query_koncowe += " , " + zmienna + " ";
+                        query_koncowe += " , \" " + zmienna + " \" ";
                     }
                     sprawdzanie++;
                 }
                 query_koncowe+=" ) ;";
-                System.out.println(query_koncowe);
 
                 statement_2.execute(query_koncowe);
 
                 break;
 
             case 3:
-                String wybierz_tablice="wybierz tablice: \n";
+                String wybierz_tablice="wybierz tabele: \n";
                 Scanner scanner3= new Scanner(System.in);
                 String tablica_nazwa,koncowa_dana="",probna="";
                 System.out.println("tablice");
@@ -164,7 +156,7 @@ public class baza {
                 for (int i=1;i<=columny;i++){
                     zadanie[i-1]=metaData.getColumnName(i);
                     koncowa_dana+=zadanie[i-1]+" \t";
-                   // probna+=resultSet_4.getString(metaData.getColumnName(i))+" ";
+
                 }
 
                 koncowa_dana+="\n";
